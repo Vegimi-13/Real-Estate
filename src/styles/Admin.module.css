@@ -1,0 +1,240 @@
+/* Layout */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc; /* Very light gray bg */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.navItem {
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+}
+
+.navItem:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.activeTab {
+  background-color: #fff;
+  color: #000;
+  font-weight: 700;
+}
+.activeTab:hover {
+  background-color: #f1f5f9;
+  color: #000;
+}
+
+.logoutBtn {
+  margin-top: auto;
+  padding: 12px 16px;
+  background-color: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.2s;
+}
+.logoutBtn:hover {
+  background-color: #b91c1c;
+}
+
+/* Main Content area */
+.mainContent {
+  margin-left: 250px; /* Width of sidebar */
+  padding: 3rem;
+  flex: 1;
+  width: calc(100% - 250px);
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.subheading {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Form Styles */
+.form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+  border: 1px solid #e2e8f0;
+  max-width: 800px;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #334155;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #666;
+}
+
+/* Specific fix for file input text */
+/* File input text fix removed to prevent build error */
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.submitBtn {
+  background-color: #000;
+  color: white;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1rem;
+  transition: opacity 0.2s;
+}
+
+.submitBtn:hover {
+  opacity: 0.9;
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Messages */
+.message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Table Styles */
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f8fafc;
+  padding: 1rem;
+  font-weight: 700;
+  color: #475569;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.deleteBtn {
+  padding: 8px 16px;
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.deleteBtn:hover {
+  background-color: #fecaca;
+}

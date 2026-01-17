@@ -1,7 +1,6 @@
 .section {
-  padding: 120px 2rem 5rem; /* Top padding for fixed navbar */
-  background-color: #ffffff;
-  min-height: 100vh;
+  padding: 5rem 2rem;
+  background-color: #ffffff; /* Pure White */
 }
 
 .container {
@@ -11,13 +10,13 @@
 
 .header {
   margin-bottom: 4rem;
-  text-align: center;
+  text-align: center; /* Centered for friendly vibe */
 }
 
 .heading {
   font-size: 3rem;
   font-weight: 800;
-  color: #000000;
+  color: #334155; /* Slate 700 - softer black */
   margin-bottom: 1rem;
   letter-spacing: -0.03em;
 }

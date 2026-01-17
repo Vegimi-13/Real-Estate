@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+
+import styles from "@/styles/Login.module.css";
 
 export default function AdminLogin() {
   const router = useRouter();
@@ -13,55 +16,56 @@ export default function AdminLogin() {
   e.preventDefault();
   setError("");
 
-  console.log("Submitting login with:", { email, password });
-
   const res = await fetch("/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
   });
 
-  console.log("Response status:", res.status);
   const data = await res.json();
-  console.log("Response data:", data);
 
   if (res.ok) {
-    console.log("Redirecting to /admin...");
     window.location.href = "/admin";
   } else {
-    console.log("Login failed");
     setError(data.message || "Invalid credentials");
   }
 }
 
-
   return (
-    <div style={{ minHeight: "100vh", display: "grid", placeItems: "center" }}>
-      <form
-        onSubmit={handleSubmit}
-        style={{ width: 320, display: "flex", flexDirection: "column", gap: 10 }}
-      >
-        <h1>Admin Login</h1>
+    <div className={styles.container}>
+      <Link href="/" className={styles.backLink}>
+        ← Back to Home
+      </Link>
+      <div className={styles.card}>
+        <h1 className={styles.title}>EH Admin</h1>
+        <p className={styles.subtitle}>Sign in to manage your properties</p>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <div className={styles.error}>{error}</div>}
 
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            className={styles.input}
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            autoFocus
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <input
+            className={styles.input}
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <button type="submit">Login</button>
-      </form>
+          <button type="submit" className={styles.button}>
+            Sign In
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

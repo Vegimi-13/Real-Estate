@@ -1,0 +1,258 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+  padding: 1rem;
+}
+
+.modal {
+  background-color: #ffffff;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease-out;
+  border: 1px solid #333;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.closeButton:hover {
+  background-color: #333;
+  transform: rotate(90deg);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image Container in Modal needing relative positioning for arrows */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: #e2e8f0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CAROUSEL ARROWS */
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s ease;
+  font-size: 1.5rem;
+}
+
+.arrowButton:hover {
+  background-color: #000;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevButton {
+  left: 20px;
+}
+
+.nextButton {
+  right: 20px;
+}
+
+.details {
+  padding: 2.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.location {
+  font-size: 1.1rem;
+  color: #475569;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.priceTag {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.descriptionSection {
+  flex: 1;
+}
+
+.priceSection {
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.description {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #334155;
+}
+
+/* ACTIONS */
+.actions {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.whatsappBtn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* box-shadow: 0 4px 6px rgba(37, 211, 102, 0.3); Removed shadow */
+}
+
+.whatsappBtn:hover {
+  background-color: #128c7e;
+  transform: translateY(-2px);
+  /* box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4); Removed shadow */
+}
+
+/* Scrollbar styling */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+.modal::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.modal::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+.modal::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    max-height: 100vh;
+    border-radius: 0;
+    height: 100%;
+  }
+  .imageContainer, .image {
+    height: 250px;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .arrowButton {
+    width: 36px;
+    height: 36px;
+  }
+}
